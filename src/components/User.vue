@@ -2,13 +2,20 @@
     <div class="component">
         <h1>The User Component</h1>
         <p>I'm an awesome User!</p>
+        <button @click="changeName">Change my name</button>
+        <p>{{name}}</p>
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
-                <app-user-detail></app-user-detail>
+                 <app-user-detail :name="name" 
+                 @nameWasReset="name = $event"
+                 :userAge="age"
+                 ></app-user-detail> <!-- v-bind = :, v-on = @ -->
             </div>
             <div class="col-xs-12 col-sm-6">
-                <app-user-edit></app-user-edit>
+                <app-user-edit :userAge="age"
+                @ageUpdate="age = $event"
+                ></app-user-edit>
             </div>
         </div>
     </div>
@@ -19,9 +26,20 @@
     import UserEdit from './UserEdit.vue';
 
     export default {
+        data: function(){
+            return{
+                name: 'Matias',
+                age : 25
+            };
+        },
         components: {
             appUserDetail: UserDetail,
             appUserEdit: UserEdit
+        },
+        methods:{
+            changeName() {
+                this.name = 'Ezequiel';
+            }
         }
     }
 </script>
