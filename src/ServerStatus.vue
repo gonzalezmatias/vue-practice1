@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>Server Status: {{server}}</p>
+        <p v-bind:class="{danger : active}">Server Status: {{server}}</p>
         <hr>
         <button @click="changeStatus"> change status</button>    
     </div>
@@ -10,12 +10,14 @@
     export default {
         data: function (){
             return{
-                server : 'critical'
+                server : 'critical',
+                active : false
             }
         },
         methods:{
             changeStatus: function (){
                 this.server = 'normal';
+                this.active = true;
             }
         }
     }
@@ -23,4 +25,9 @@
 
 
 
-<style></style>
+<style>
+.danger{
+    color: red;
+}
+
+</style>
