@@ -3,7 +3,8 @@
                 <ul class="list-group">
                     <li
                             class="list-group-item"
-                            v-for="index in 5">
+                            v-for="index in 4"
+                             v-bind:key="index">
                         Server #{{ index }} <app-status></app-status>
                     </li>
                 </ul>
@@ -20,7 +21,9 @@
 
 </script>
 
-<style>
-
+<style scoped>
+    div{
+        border: 1px solid blue;
+    }
 </style>
 
