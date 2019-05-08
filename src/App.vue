@@ -1,37 +1,31 @@
 <template>
     <div class="container">
         <div class="row">
-            <app-header></app-header>
-        </div>
-        <hr>
-        <div class="row">
-            <app-server></app-server>
-            <app-details></app-details>            
-        </div>
-        <hr>
-        <div class="row">
-            <app-footer></app-footer>
+            <div class="col-xs-12">
+               <app-quote>
+                   <h2 slot="title">{{ quoteTitle }}</h2> <!-- only the style is setup in te child, others comprtamientos it's change here -->
+                   <p>Somo quote by Slot</p>
+               </app-quote>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-    import Header from './Header.vue';
-    import Footer from './Footer.vue';
-    import Server from './Server.vue';
-    import ServerDetails from './ServerDetails.vue';
-
+    import Quote from './components/Quote.vue';
     export default {
+        data: function(){
+            return{
+                quoteTitle: 'Somo title from data'
+            }
+        },
         components: {
-            'app-header': Header,
-            'app-footer' : Footer,
-            'app-server': Server,
-            'app-details': ServerDetails
+            appQuote: Quote
         }
     }
-
 </script>
 
-<style>
+
+<style scoped>
 
 </style>
