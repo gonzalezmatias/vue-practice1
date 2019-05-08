@@ -21,7 +21,8 @@
             editAge (){
                 this.userAge= 30;
                // this.$emit('ageUpdate', this.userAge) this is used 4 pass data to thye parent
-               eventBus.$emit('ageUpdate', this.userAge);
+               //eventBus.$emit('ageUpdate', this.userAge);
+                eventBus.changeAge(this.userAge);
             }
         }
     }
