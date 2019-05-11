@@ -32,6 +32,9 @@
         },
         methods:{
             newQuote(quote){
+                if (this.quotes.length >= this.maxQuotes ){
+                    return alert("delete somo quotes")
+                } 
                 this.quotes.push(quote)
             },
             deletQuote(index){
